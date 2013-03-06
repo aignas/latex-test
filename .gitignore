@@ -1,6 +1,10 @@
 # Ignore everything
 *
-# Exceptions
+
+# Now, whitelist anything that's a directory
+!*/
+
+# Other exceptions
 !.gitignore
 !*.tex
 !*.pdf
