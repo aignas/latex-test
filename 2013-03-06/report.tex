@@ -1,0 +1,57 @@
+% This is for StackExchange question about a title page
+
+\documentclass{scrreprt}
+
+\usepackage{scrpage2,scrextend}
+\usepackage{calc}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+
+\author{Name A. Surname}
+\title{%
+    \textcolor{BrickRed}{Journal of the} \vspace{1em}\\
+Stackexchange \LaTeX users of the world wide web}
+
+% This part depends on your actual environment, Here I am using KOMA script
+\makeatletter
+\renewcommand{\maketitle}{%
+    \begin{tikzpicture}[remember picture, overlay]
+        % Gray boundary
+        \node (left) at (current page.west)
+              [rectangle, fill=gray, inner sep=0pt, anchor = west,
+               minimum width=4cm, minimum height=1\paperheight]{};
+        % Red boundary
+        \node (bottom) at (current page.south)
+              [rectangle, fill=BrickRed, inner sep=0 pt, anchor=south,
+               minimum width=1\paperwidth, minimum height=0.5cm]{};
+
+        % Some additional stuff:
+        \node [yshift=\paperheight/3] (middle) at (current page.south)
+              [rectangle, fill=Green, inner sep=0pt, anchor=north west,
+               minimum height=3cm, minimum width=0.25\paperwidth]{};
+        \node [yshift=\paperheight/3] (middle) at (current page.south)
+              [rectangle, fill=BrickRed, inner sep=0pt, anchor=north east,
+               minimum height=3cm, minimum width=0.25\paperwidth]{};
+        \node [yshift=\paperheight/3] (middle) at (current page.south)
+              [rectangle, fill=Goldenrod, inner sep=0pt, anchor=south west,
+               minimum height=3cm, minimum width=0.25\paperwidth]{};
+        \node [yshift=\paperheight/3] (middle) at (current page.south)
+              [rectangle, fill=RoyalBlue, inner sep=0pt, anchor=south east,
+               minimum height=3cm, minimum width=0.25\paperwidth]{};
+    \end{tikzpicture}
+    \thispagestyle{empty}
+    \parindent0pt
+
+    \begin{addmargin}{4em}
+        \vspace{4cm}
+        {\huge\usekomafont{title} \@title}
+
+        \vspace{2cm}
+        {\usekomafont{disposition}\Large \@author}
+    \end{addmargin}
+}
+\makeatother
+
+\begin{document}
+\maketitle
+\end{document}

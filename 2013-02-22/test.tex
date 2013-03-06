@@ -1,0 +1,34 @@
+\documentclass{scrartcl}
+
+\usepackage[
+    style=authoryear,
+    citestyle=apa,
+    backend=biber
+]{biblatex}
+
+\usepackage{filecontents}
+
+
+\begin{filecontents}{\jobname.bib}
+    @misc{A01,
+        author = {Author, A.},
+        year = {2001},
+        title = {Alpha},
+        origlanguage = {german},
+        translator = {Buthor, B.}
+    }
+\end{filecontents}
+
+\addbibresource{\jobname.bib}
+
+\title{MWE}
+\author{Me}
+
+\begin{document}
+\maketitle 
+
+This is the only citation \parencite{A01}.
+
+\printbibliography
+
+\end{document}
