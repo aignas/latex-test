@@ -4,6 +4,10 @@
 # Now, whitelist anything that's a directory
 !*/
 
+# Whitelist README and LICENSE
+!README
+!LICENSE
+
 # Other exceptions
 !.gitignore
 !*.tex
